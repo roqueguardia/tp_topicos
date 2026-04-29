@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <windows.h>
 #include <stdlib.h>
 #include "dibujos.h"
 #include <time.h>
@@ -90,27 +91,38 @@ int main(int argc, char* argv[])
     printf("Pulse 'A' para borrar la pantalla con un color aleatorio\n"
            "Pulse 'D' para colocar una cara aleatoria en un lugar aleatorio\n");
 
+/**< Variable para verificar la inicialización del juego por primera vez. Sirve para la presentación */
+    int pos=0;
+
     while (corriendo) {
-
-
-        //Pauso el temporizador
-        gbt_temporizador_pausar(temporizador);
 
 /**<
 Ventana de presentacion.
-Debe aparecer en pantalla 3 segundos.
+Debe aparecer en pantalla 5 segundos.
+
 */
+        if(pos==0) {
+        //Pauso y reanudo el temporizador luego de X segundos.
+        gbt_temporizador_pausar(temporizador);
+        printf("pausa");
 
-        tGBT_Temporizador *temporizador_inicio = gbt_temporizador_crear(3.0);
+        offsetX = rand() % TAM_GRILLA;
+        offsetY = rand() % TAM_GRILLA;
+        gbt_dibujar_pixel(offsetX,offsetY,10);
+        offsetX = rand() % TAM_GRILLA;
+        offsetY = rand() % TAM_GRILLA;
+        gbt_dibujar_pixel(offsetX,offsetY,12);
+        offsetX = rand() % TAM_GRILLA;
+        offsetY = rand() % TAM_GRILLA;
+        gbt_dibujar_pixel(offsetX,offsetY,14);
 
-        if (gbt_temporizador_consumir(temporizador_inicio)) {
-            //...
-            uint8_t color = rand() % CANT_COLORES;
-            gbt_borrar_backbuffer(color);
-        }
-        //Reanudo el temporizador
+        Sleep(5000);
+
+
+        printf("reanudar");
         gbt_temporizador_reanudar(temporizador);
-
+        pos=1;
+        }
 
         gbt_procesar_entrada();
         eGBT_Tecla tecla = gbt_obtener_tecla_presionada();
@@ -135,7 +147,7 @@ Debe aparecer en pantalla 3 segundos.
                 gbt_borrar_backbuffer(color);
             }
         }
-// Cada segundo que pasa, se decide que acci�n realizar en el juego
+// Cada segundo que pasa, se decide que acción realizar en el juego
         if (gbt_temporizador_consumir(temporizador)) {
 
             offsetX = rand() % TAM_GRILLA;
