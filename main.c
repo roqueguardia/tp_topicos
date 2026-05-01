@@ -35,6 +35,42 @@ const uint8_t triste[8][8] ={
 
 };
 
+const uint8_t Z[8][8] = {
+    {C,C,C,C,C,C,C,C},
+    {C,C,C,C,C,C,C,C},
+    {N,N,N,N,N,N,C,C},
+    {N,N,N,N,C,C,N,N},
+    {N,N,N,C,C,N,N,N},
+    {N,N,C,C,N,N,N,N},
+    {C,C,N,N,N,N,N,N},
+    {C,C,C,C,C,C,C,C}
+};
+
+
+const uint8_t HA[8][8] = {
+    {N,N,C,C,C,C,N,N},
+    {N,C,C,N,N,C,C,N},
+    {C,C,N,N,N,N,C,C},
+    {C,C,C,C,C,C,C,C},
+    {C,C,N,N,N,N,C,C},
+    {C,C,N,N,N,N,C,C},
+    {C,C,N,N,N,N,C,C},
+    {C,C,N,N,N,N,C,C}
+};
+
+
+const uint8_t R[8][8] = {
+    {C,C,C,C,C,C,N,N},
+    {C,C,N,N,N,C,C,N},
+    {C,C,N,N,N,C,C,N},
+    {C,C,C,C,C,C,N,N},
+    {C,C,C,C,N,N,N,N},
+    {C,C,N,C,C,N,N,N},
+    {C,C,N,N,C,C,N,N},
+    {C,C,N,N,N,C,C,N}
+};
+
+
 tGBT_ColorRGB paletaCGA[CANT_COLORES] = {
 
     /// 0-15: Colores CGA (16 colores)
@@ -103,24 +139,21 @@ Debe aparecer en pantalla 5 segundos.
 */
         if(pos==0) {
         //Pauso y reanudo el temporizador luego de X segundos.
-        gbt_temporizador_pausar(temporizador);
+        //gbt_temporizador_pausar(temporizador);
         printf("pausa");
 
-        offsetX = rand() % TAM_GRILLA;
-        offsetY = rand() % TAM_GRILLA;
-        gbt_dibujar_pixel(offsetX,offsetY,10);
-        offsetX = rand() % TAM_GRILLA;
-        offsetY = rand() % TAM_GRILLA;
-        gbt_dibujar_pixel(offsetX,offsetY,12);
-        offsetX = rand() % TAM_GRILLA;
-        offsetY = rand() % TAM_GRILLA;
-        gbt_dibujar_pixel(offsetX,offsetY,14);
+        //Posiciono letras en la pantalla
+        offsetX = 10;
+        offsetY = 6;
+        dibujar(Z, offsetX, offsetY);
+        dibujar(HA, offsetX + (uint16_t)1, offsetY);
+        dibujar(R, offsetX + (uint16_t)2, offsetY);
 
         Sleep(5000);
 
 
-        printf("reanudar");
-        gbt_temporizador_reanudar(temporizador);
+        //printf("reanudar");
+        //gbt_temporizador_reanudar(temporizador);
         pos=1;
         }
 
