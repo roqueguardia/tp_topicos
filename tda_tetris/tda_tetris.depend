@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1777418962 source:c:\users\guada&chino\desktop\topicos\programas\tda_tetris\main.c
+	<stdio.h>
+	<stdlib.h>
+	"GBT/gbt.h"
+	"dibujos.h"
+
+1776646998 c:\users\guada&chino\desktop\topicos\programas\tda_tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1776646998 c:\users\guada&chino\desktop\topicos\programas\tda_tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1776646998 c:\users\guada&chino\desktop\topicos\programas\tda_tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1776646998 c:\users\guada&chino\desktop\topicos\programas\tda_tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1776646998 c:\users\guada&chino\desktop\topicos\programas\tda_tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1776646998 c:\users\guada&chino\desktop\topicos\programas\tda_tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777335661 source:c:\users\guada&chino\desktop\topicos\programas\tda_tetris\pieza.c
+
+1777420570 source:c:\users\guada&chino\desktop\topicos\programas\tda_tetris\tablero.c
+	"tablero.h"
+
+1777336726 source:c:\users\guada&chino\desktop\topicos\programas\tda_tetris\dibujos.c
+	"dibujos.h"
+
+1777336726 c:\users\guada&chino\desktop\topicos\programas\tda_tetris\dibujos.h
+	<GBT/gbt.h>
+
+1777420018 c:\users\guada&chino\desktop\topicos\programas\tda_tetris\tablero.h
+	<GBT/gbt.h>
+
